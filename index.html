@@ -2,102 +2,336 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101010">
-  <title>VELTRIX NETWORK | Tecnología y Estilo</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: #101010;
-      color: #fff;
-      font-family: Arial, sans-serif;
-    }
-    header {
-      padding: 24px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #292929;
-    }
-    .logo { font-size: 24px; font-weight: 900; }
-    .logo span { color: #ff6b20; }
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-      margin-left: 18px;
-      font-size: 14px;
-    }
-    .hero {
-      padding: 90px 8%;
-      text-align: center;
-      background: radial-gradient(circle, #302016, #101010 70%);
-    }
-    .hero h1 { font-size: clamp(36px, 7vw, 65px); }
-    .hero h1 span { color: #ff6b20; }
-    .hero p { color: #bbb; margin: 20px 0; }
-    .btn {
-      display: inline-block;
-      background: #ff6b20;
-      color: #111;
-      padding: 14px 25px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .categories { padding: 50px 6%; }
-    .categories h2 { margin-bottom: 25px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-      gap: 15px;
-    }
-    .category {
-      background: #1d1d1d;
-      padding: 28px 12px;
-      text-align: center;
-      border: 1px solid #333;
-      border-radius: 10px;
-    }
-    .category:hover { border-color: #ff6b20; }
-    footer {
-      padding: 30px;
-      text-align: center;
-      color: #888;
-      border-top: 1px solid #292929;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b12">
+<title>VELTRIX NETWORK | Tecnología y Estilo</title>
+<style>
+:root {
+  --bg:#080b12;
+  --panel:#101725;
+  --blue:#168cff;
+  --cyan:#00d5ff;
+  --white:#f5f8ff;
+  --muted:#91a0b7;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+}
+header{
+  position:sticky;top:0;z-index:10;
+  background:#080b12ee;backdrop-filter:blur(15px);
+  border-bottom:1px solid #1b2a40;
+  padding:17px 6%;
+  display:flex;justify-content:space-between;
+  align-items:center;gap:15px;
+}
+.logo{font-size:22px;font-weight:900;letter-spacing:2px}
+.logo span{color:var(--cyan)}
+nav{display:flex;gap:22px;align-items:center}
+nav a{color:#c5d1e3;text-decoration:none;font-size:14px}
+.cart-button,.primary{
+  background:linear-gradient(120deg,#087bff,#00c9ef);
+  border:0;color:white;padding:12px 18px;
+  border-radius:9px;font-weight:bold;cursor:pointer;
+}
+.hero{
+  padding:90px 7%;min-height:410px;
+  background:radial-gradient(ellipse at 80% 40%,#073d7155,transparent 55%),
+  linear-gradient(120deg,#0a101d,#101c30);
+  border-bottom:1px solid #17283e;
+}
+.tag{color:var(--cyan);letter-spacing:3px;font-size:12px;font-weight:bold}
+h1{font-size:clamp(38px,6vw,65px);line-height:1.08;margin:20px 0}
+h1 span{color:var(--cyan)}
+.hero p{color:var(--muted);max-width:540px;line-height:1.7}
+section{padding:55px 6%}
+.section-title{font-size:27px;margin:0 0 10px}
+.subtitle{color:var(--muted);margin-bottom:27px}
+.categories{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0}
+.chip{
+  background:#111c2d;border:1px solid #263b56;
+  color:#dce8fa;padding:11px 17px;border-radius:30px;
+  cursor:pointer;
+}
+.chip.active,.chip:hover{background:#087bff;border-color:#087bff}
+.search{
+  width:100%;max-width:440px;padding:14px 16px;
+  border:1px solid #263b56;border-radius:9px;
+  background:#101725;color:white;font-size:15px;
+}
+.products{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;margin-top:25px;
+}
+.product{
+  background:var(--panel);border:1px solid #1d2d43;
+  border-radius:15px;overflow:hidden;transition:.25s;
+}
+.product:hover{transform:translateY(-5px);border-color:var(--blue)}
+.product-image{
+  height:175px;display:grid;place-items:center;
+  background:radial-gradient(circle,#173c65,#101725 70%);
+  font-size:48px;
+}
+.product-info{padding:19px}
+.product-info small{color:var(--cyan)}
+.product-info h3{margin:10px 0}
+.product-info p{font-size:13px;color:var(--muted);line-height:1.5}
+.price{font-size:20px;font-weight:bold;margin:15px 0}
+.add{
+  width:100%;padding:12px;border:1px solid #168cff;
+  background:#0b2543;color:white;border-radius:8px;
+  cursor:pointer;font-weight:bold;
+}
+.add:hover{background:#087bff}
+.empty{color:var(--muted);padding:20px 0}
+.benefits{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+.benefit{
+  background:#101725;padding:23px;border:1px solid #1d2d43;
+  border-radius:12px;
+}
+.benefit strong{display:block;margin:10px 0}
+.benefit p{color:var(--muted);font-size:13px}
+footer{
+  padding:35px 6%;border-top:1px solid #1d2d43;
+  color:var(--muted);text-align:center;font-size:13px;
+}
+.overlay{
+  position:fixed;inset:0;background:#000a;z-index:20;
+  display:none;justify-content:flex-end;
+}
+.overlay.show{display:flex}
+.drawer{
+  width:min(420px,100%);height:100%;overflow:auto;
+  background:#101725;padding:25px;
+}
+.drawer-head{display:flex;justify-content:space-between;align-items:center}
+.close{background:none;border:0;color:white;font-size:26px;cursor:pointer}
+.cart-item{
+  padding:15px 0;border-bottom:1px solid #263b56;
+  display:flex;justify-content:space-between;gap:10px;
+}
+.cart-item button{
+  background:none;color:#ff7180;border:0;cursor:pointer;
+}
+.total{font-size:20px;font-weight:bold;margin:25px 0}
+.whatsapp{width:100%;padding:15px;background:#16a765;
+  color:white;border:0;border-radius:9px;font-weight:bold;cursor:pointer}
+@media(max-width:650px){
+  header{padding:14px 4%}
+  nav{gap:10px}
+  nav a{display:none}
+  .logo{font-size:18px}
+  .hero{padding:65px 6%}
+  section{padding:40px 5%}
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">VELTRIX <span>NETWORK</span></div>
-    <nav>
-      <a href="#categorias">Categorías</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h1>TECNOLOGÍA <span>Y ESTILO</span></h1>
-    <p>Descubre una nueva forma de comprar.</p>
-    <a class="btn" href="#categorias">EXPLORAR TIENDA</a>
-  </section>
+<header>
+  <div class="logo">VELTRIX <span>NETWORK</span></div>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#contacto">Contacto</a>
+    <button class="cart-button" onclick="openCart()">
+      🛒 Carrito (<span id="count">0</span>)
+    </button>
+  </nav>
+</header>
 
-  <section class="categories" id="categorias">
-    <h2>Nuestras categorías</h2>
-    <div class="grid">
-      <div class="category">🏍️<br><br>Motocicletas</div>
-      <div class="category">📱<br><br>Tecnología</div>
-      <div class="category">🛠️<br><br>Herramientas</div>
-      <div class="category">🎒<br><br>Accesorios</div>
-      <div class="category">🏠<br><br>Hogar</div>
-      <div class="category">🔥<br><br>Ofertas</div>
+<main>
+<section class="hero" id="inicio">
+  <div class="tag">TECNOLOGÍA • CALIDAD • ESTILO</div>
+  <h1>ELEVA TU ESTILO.<br><span>SUPERA TUS LÍMITES.</span></h1>
+  <p>
+    Descubre productos de tecnología, motocicletas,
+    herramientas, accesorios y mucho más.
+    Calidad y estilo en un solo lugar.
+  </p>
+  <a href="#catalogo"><button class="primary">EXPLORAR TIENDA →</button></a>
+</section>
+
+<section id="catalogo">
+  <h2 class="section-title">Nuestro catálogo</h2>
+  <p class="subtitle">Encuentra lo que necesitas en Veltrix Network.</p>
+
+  <input class="search" id="search" type="search"
+    placeholder="Buscar productos..." oninput="renderProducts()">
+
+  <div class="categories" id="categories"></div>
+  <div class="products" id="products"></div>
+</section>
+
+<section>
+  <h2 class="section-title">¿Por qué comprar en Veltrix?</h2>
+  <p class="subtitle">Una experiencia de compra sencilla y directa.</p>
+  <div class="benefits">
+    <div class="benefit">🚚<strong>Envíos</strong><p>Consulta las opciones de entrega disponibles.</p></div>
+    <div class="benefit">💬<strong>Atención directa</strong><p>Comunícate con nosotros por WhatsApp.</p></div>
+    <div class="benefit">💳<strong>Opciones de pago</strong><p>Consulta nuestros métodos de pago.</p></div>
+  </div>
+</section>
+
+<section id="contacto">
+  <h2 class="section-title">¿Necesitas ayuda?</h2>
+  <p class="subtitle">Estamos para atenderte.</p>
+  <a href="https://wa.me/50557993000" target="_blank">
+    <button class="primary">CONTACTAR POR WHATSAPP</button>
+  </a>
+</section>
+</main>
+
+<footer>
+  <div class="logo">VELTRIX <span>NETWORK</span></div>
+  <p>TECNOLOGÍA • CALIDAD • ESTILO</p>
+  <p>© 2026 Veltrix Network. Todos los derechos reservados.</p>
+</footer>
+
+<div class="overlay" id="overlay" onclick="outsideClose(event)">
+  <div class="drawer">
+    <div class="drawer-head">
+      <h2>Tu carrito</h2>
+      <button class="close" onclick="closeCart()">×</button>
     </div>
-  </section>
+    <div id="cartItems"></div>
+    <div class="total" id="total">Total: C$0</div>
+    <button class="whatsapp" onclick="checkout()">
+      FINALIZAR PEDIDO POR WHATSAPP
+    </button>
+  </div>
+</div>
 
-  <footer id="contacto">
-    VELTRIX NETWORK © 2026
-    <p>CALIDAD • TECNOLOGÍA • ESTILO</p>
-  </footer>
+<script>
+const categories = [
+  "Todos","Motocicletas","Tecnología",
+  "Herramientas","Accesorios","Hogar","Ofertas"
+];
+
+// Productos demostrativos. Sustituiremos estos datos
+// por tus productos, fotografías y precios reales.
+const products = [
+  {id:1,name:"Producto para motocicleta",category:"Motocicletas",price:0,icon:"🏍️"},
+  {id:2,name:"Accesorio tecnológico",category:"Tecnología",price:0,icon:"⚡"},
+  {id:3,name:"Herramienta profesional",category:"Herramientas",price:0,icon:"🛠️"},
+  {id:4,name:"Accesorio premium",category:"Accesorios",price:0,icon:"🎒"},
+  {id:5,name:"Producto para el hogar",category:"Hogar",price:0,icon:"🏠"},
+  {id:6,name:"Producto en oferta",category:"Ofertas",price:0,icon:"🔥"}
+];
+
+let activeCategory = "Todos";
+let cart = [];
+
+const money = value =>
+  "C$" + value.toLocaleString("es-NI");
+
+function renderCategories(){
+  document.getElementById("categories").innerHTML =
+    categories.map(c => `
+      <button class="chip ${activeCategory===c?"active":""}"
+      onclick="setCategory('${c}')">${c}</button>
+    `).join("");
+}
+
+function setCategory(category){
+  activeCategory = category;
+  renderCategories();
+  renderProducts();
+}
+
+function renderProducts(){
+  const query = document.getElementById("search").value.toLowerCase();
+  const filtered = products.filter(p =>
+    (activeCategory==="Todos" || p.category===activeCategory) &&
+    p.name.toLowerCase().includes(query)
+  );
+
+  document.getElementById("products").innerHTML =
+    filtered.length ? filtered.map(p => `
+      <article class="product">
+        <div class="product-image">${p.icon}</div>
+        <div class="product-info">
+          <small>${p.category.toUpperCase()}</small>
+          <h3>${p.name}</h3>
+          <p>Consulta disponibilidad y detalles de este producto.</p>
+          <div class="price">${p.price ? money(p.price) : "Consultar precio"}</div>
+          <button class="add" onclick="addToCart(${p.id})">
+            AGREGAR AL CARRITO
+          </button>
+        </div>
+      </article>
+    `).join("") : '<p class="empty">No encontramos productos.</p>';
+}
+
+function addToCart(id){
+  const item = cart.find(p=>p.id===id);
+  if(item) item.quantity++;
+  else cart.push({...products.find(p=>p.id===id),quantity:1});
+  updateCart();
+}
+
+function removeItem(id){
+  cart = cart.filter(p=>p.id!==id);
+  updateCart();
+}
+
+function updateCart(){
+  document.getElementById("count").textContent =
+    cart.reduce((sum,p)=>sum+p.quantity,0);
+
+  document.getElementById("cartItems").innerHTML =
+    cart.length ? cart.map(p=>`
+      <div class="cart-item">
+        <div>${p.icon} <strong>${p.name}</strong><br>
+        <small>Cantidad: ${p.quantity} · ${p.price?money(p.price):"Precio por confirmar"}</small></div>
+        <button onclick="removeItem(${p.id})">Eliminar</button>
+      </div>
+    `).join("") : '<p class="empty">Tu carrito está vacío.</p>';
+
+  const total = cart.reduce((sum,p)=>sum+p.price*p.quantity,0);
+  document.getElementById("total").textContent =
+    "Total: "+money(total)+(cart.some(p=>!p.price)?" + precios por confirmar":"");
+}
+
+function openCart(){
+  document.getElementById("overlay").classList.add("show");
+}
+function closeCart(){
+  document.getElementById("overlay").classList.remove("show");
+}
+function outsideClose(event){
+  if(event.target.id==="overlay") closeCart();
+}
+
+function checkout(){
+  if(!cart.length){
+    alert("Agrega productos antes de realizar tu pedido.");
+    return;
+  }
+  const lines = cart.map(p =>
+    `- ${p.name} x${p.quantity}: ${p.price?money(p.price*p.quantity):"Precio por confirmar"}`
+  ).join("\n");
+
+  const total = cart.reduce((sum,p)=>sum+p.price*p.quantity,0);
+  const message =
+    `Hola Veltrix Network. Quiero realizar este pedido:\n\n${lines}\n\nTotal conocido: ${money(total)}\nPor favor confirmen disponibilidad y precio final.`;
+
+  window.open(
+    "https://wa.me/50557993000?text="+encodeURIComponent(message),
+    "_blank"
+  );
+}
+
+renderCategories();
+renderProducts();
+updateCart();
+</script>
 </body>
 </html>
