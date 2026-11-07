@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101010">
+  <title>VELTRIX NETWORK | Tecnología y Estilo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #101010;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      padding: 24px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #292929;
+    }
+    .logo { font-size: 24px; font-weight: 900; }
+    .logo span { color: #ff6b20; }
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+    .hero {
+      padding: 90px 8%;
+      text-align: center;
+      background: radial-gradient(circle, #302016, #101010 70%);
+    }
+    .hero h1 { font-size: clamp(36px, 7vw, 65px); }
+    .hero h1 span { color: #ff6b20; }
+    .hero p { color: #bbb; margin: 20px 0; }
+    .btn {
+      display: inline-block;
+      background: #ff6b20;
+      color: #111;
+      padding: 14px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .categories { padding: 50px 6%; }
+    .categories h2 { margin-bottom: 25px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 15px;
+    }
+    .category {
+      background: #1d1d1d;
+      padding: 28px 12px;
+      text-align: center;
+      border: 1px solid #333;
+      border-radius: 10px;
+    }
+    .category:hover { border-color: #ff6b20; }
+    footer {
+      padding: 30px;
+      text-align: center;
+      color: #888;
+      border-top: 1px solid #292929;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">VELTRIX <span>NETWORK</span></div>
+    <nav>
+      <a href="#categorias">Categorías</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>TECNOLOGÍA <span>Y ESTILO</span></h1>
+    <p>Descubre una nueva forma de comprar.</p>
+    <a class="btn" href="#categorias">EXPLORAR TIENDA</a>
+  </section>
+
+  <section class="categories" id="categorias">
+    <h2>Nuestras categorías</h2>
+    <div class="grid">
+      <div class="category">🏍️<br><br>Motocicletas</div>
+      <div class="category">📱<br><br>Tecnología</div>
+      <div class="category">🛠️<br><br>Herramientas</div>
+      <div class="category">🎒<br><br>Accesorios</div>
+      <div class="category">🏠<br><br>Hogar</div>
+      <div class="category">🔥<br><br>Ofertas</div>
+    </div>
+  </section>
+
+  <footer id="contacto">
+    VELTRIX NETWORK © 2026
+    <p>CALIDAD • TECNOLOGÍA • ESTILO</p>
+  </footer>
+</body>
+</html>
