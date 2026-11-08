@@ -218,14 +218,19 @@ const categories = [
 // Productos demostrativos. Sustituiremos estos datos
 // por tus productos, fotografías y precios reales.
 const products = [
-  {id:1,name:"Producto para motocicleta",category:"Motocicletas",price:0,icon:"🏍️"},
-  {id:2,name:"Accesorio tecnológico",category:"Tecnología",price:0,icon:"⚡"},
-  {id:3,name:"Herramienta profesional",category:"Herramientas",price:0,icon:"🛠️"},
-  {id:4,name:"Accesorio premium",category:"Accesorios",price:0,icon:"🎒"},
-  {id:5,name:"Producto para el hogar",category:"Hogar",price:0,icon:"🏠"},
-  {id:6,name:"Producto en oferta",category:"Ofertas",price:0,icon:"🔥"}
+ const products = [
+  {
+    id: 1,
+    name: "Chaqueta Suzuki para Motociclista",
+    category: "Motocicletas",
+    price: 3700,
+    wholesalePrice: 3200,
+    wholesaleMinimum: 3,
+    icon: "🏍️",
+    image: "chaqueta-suzuki.jpg",
+    description: "Chaqueta para motociclista con protecciones en hombros, codos y espalda. Disponible para pedidos en Veltrix Network."
+  }
 ];
-
 let activeCategory = "Todos";
 let cart = [];
 
@@ -257,10 +262,12 @@ function renderProducts(){
     filtered.length ? filtered.map(p => `
       <article class="product">
         <div class="product-image">${p.icon}</div>
-        <div class="product-info">
+       <div class="product-image">
+  <img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">
+</div>
           <small>${p.category.toUpperCase()}</small>
           <h3>${p.name}</h3>
-          <p>Consulta disponibilidad y detalles de este producto.</p>
+        <p>${p.description}</p>
           <div class="price">${p.price ? money(p.price) : "Consultar precio"}</div>
           <button class="add" onclick="addToCart(${p.id})">
             AGREGAR AL CARRITO
